@@ -1,33 +1,21 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+var traverson = require('traverson'),
+    JsonHalAdapter = require('traverson-hal'),
+    xappToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsImV4cCI6MTUxNzQ0MDcwMiwiaWF0IjoxNTE2ODM1OTAyLCJhdWQiOiI1YTY4ZWQxN2IyMDJhMzRmZGQ4NWE0NGUiLCJpc3MiOiJHcmF2aXR5IiwianRpIjoiNWE2OTE0M2VjOWRjMjQ0YTIyOGJiNGY0In0.R4htGaBOXbQF9pwefOhzzQxNFCtfnr36ntQVg3HoPJw';
 
-let queryURL = "http://www.nyartbeat.com/list/event_searchNear?latitude=40.719130&longitude=-73.980000&Schedule=upcoming&SortOrder=mostpopular";
-// (Most popular upcoming events)
+traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);
+api = traverson.from('https://api.artsy.net/api').jsonHal();
 
-      // Perfoming an AJAX GET request to our queryURL
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-
-      // After the data from the AJAX request comes back
-      .then(function(response) {
-
-        // // Saving the image_original_url property
-        //
-        // // Creating and storing an image tag
-        // var newImage = $("<img>");
-        //
-        // for ( j = 0; j < response.data.length; j++ ) {
-        //   $(".images").append(
-        //   "<img src='" + response.data[j].images.original_still.url + "'" +
-        //   "alt='" + response.data[j].slug + "'" +
-        //   "data-still='" + response.data[j].images.original.url + "'" +
-        //   "data-animate='" + response.data[j].images.original_still.url + "'" +
-        //   "data-state='animate'" +
-        //   "class='animalImage'>");
-        //   $(".images").append("<p>" + response.data[j].rating + "</p>");
-        // }
-        console.log(response);
-      });
-    });
+api.newRequest()
+  .follow('artist')
+  .withRequestOptions({
+    headers: {
+      'X-Xapp-Token': xappToken,
+      'Accept': 'application/vnd.artsy-v2+json'
+    }
+  })
+  .withTemplateParameters({ id: 'andy-warhol' })
+  .getResource(function(error, andyWarhol) {
+    console.log(andyWarhol.name + 'was born in ' + andyWarhol.birthday + ' in ' + andyWarhol.hometown);
+  });
+});
