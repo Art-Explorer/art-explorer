@@ -58,8 +58,9 @@ body {
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 50%;
+        height: 75%;
 				width: 50%;
+  			margin-bottom: 142px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {

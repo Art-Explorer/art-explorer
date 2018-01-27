@@ -57,6 +57,8 @@ $( document ).ready(function() {
     // Sets a event listnener for a new artist
   $("#add-artist").on("click", function(event) {
     event.preventDefault();
+    $("#showcase").empty();
+
     const token = "2e2316873bca66e99bd915dbcb769c56";
     var artist = $("#artist-input").val().trim();
     let queryURL = "https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=" + token + "&query=" + artist;
@@ -69,6 +71,7 @@ $( document ).ready(function() {
     .then(function(response) {
       dbRef.set(response);
       console.log(response);
+
     });
   });
 });
