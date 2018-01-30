@@ -58,49 +58,87 @@
     </nav>
     <div class="container" id="MainContent">
       <div class="PageHeader">
-        <form class="form-inline col-lg-7">
+        <form class="form-inline">
+          <!-- need find museums to specify country -->
+          <div id="findmuseums">
+            Find museums in:
+          </div>
+          <div id="controls">
+            <select id="country">
+              <option value="all">All</option>
+              <option value="au">Australia</option>
+              <option value="br">Brazil</option>
+              <option value="ca">Canada</option>
+              <option value="fr">France</option>
+              <option value="de">Germany</option>
+              <option value="mx">Mexico</option>
+              <option value="nz">New Zealand</option>
+              <option value="it">Italy</option>
+              <option value="za">South Africa</option>
+              <option value="es">Spain</option>
+              <option value="pt">Portugal</option>
+              <option value="us" selected>U.S.A.</option>
+              <option value="uk">United Kingdom</option>
+            </select>
+          </div>
+          <div id="locationField">
+            <input id="autocomplete" placeholder="Enter a city" type="text" />
+          </div>
           <input class="form-control" id="artist-input" type="search" placeholder="Where are you going??" aria-label="Search">
           <button class="btn btn-primary" id="add-artist" type="submit">Search</button>
         </form>
       </div>
       <div class="row">
-          <!-- <div class="row featured-locations"> -->
-            <div class="col-lg-3">
-            <div id="map"></div>
-            </div>
-            <div class="col-lg-6 list-group">
-              <h4 class="list-group-item-heading">NYC</h4>
-              <button type="button" class="list-group-item" id="add-artist">Cooper-Hewitt Smithsonian Design Museum</button>
-              <button type="button" class="list-group-item">The Metropolitan Museum of Art</button>
-              <button type="button" class="list-group-item">The Museum of Modern Art</button>
-              <button type="button" class="list-group-item">Whitney Museum of American Art</button>
-              <button type="button" class="list-group-item">Solomon R. Guggenheim Museum</button>
-              <button type="button" class="list-group-item">Museum of Art and Design</button>
-            </div>
-            <!-- Aside section-->
-            <div class="col-md-3">
-              <aside>
-              <a class="twitter-timeline" target="_blank" data-width="280" data-height="780" href="https://twitter.com/locartexplorer?ref_src=twsrc%5Etfw">Tweets by locartexplorer</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <!-- Main section-->
+        <div class="col-md-9">
+          <di
+            <div class="row featured-locations">
+              <!-- this is where the search list is rendered -->
+              <div class="col-lg-6 list-group">
+                <h4 class="list-group-item-heading"></h4>
               </div>
-            </aside>
-            </div>
-
-          <!-- </div> -->
-          <div class="row featured-locations">
-                        <div class="col-lg-3"></div>
-            <div class="col-lg-6 list-group">
-              <h4 class="list-group-item-heading">Tokyo</h4>
-              <button type="button" class="list-group-item">Tokyo Metropolitan Art Museum</button>
-              <button type="button" class="list-group-item">National Museum of Modern Art</button>
-              <button type="button" class="list-group-item">Mori Art Museum</button>
-              <button type="button" class="list-group-item">The National Art Center</button>
-              <button type="button" class="list-group-item">Matsuoka Museum of Art</button>
-            </div>
+              </div>
           </div>
         </div>
     </div>
 
-    <!-- <div id="map"></div> -->
+
+
+
+    <div id="map"></div>
+
+    <div id="listing">
+      <table id="resultsTable">
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+
+    <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+          <tr id="iw-phone-row" class="iw_table_row">
+            <td class="iw_attribute_name">Telephone:</td>
+            <td id="iw-phone"></td>
+          </tr>
+          <tr id="iw-rating-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating:</td>
+            <td id="iw-rating"></td>
+          </tr>
+          <tr id="iw-website-row" class="iw_table_row">
+            <td class="iw_attribute_name">Website:</td>
+            <td id="iw-website"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <footer id="footer">
       <div class="navbar navbar-default navbar-fixed-bottom">
         <ul class="nav navbar-nav" id="footernav">
@@ -108,7 +146,7 @@
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-        <div class="container" class="text-center-align" id="copyright">          
+        <div class="container" class="text-center-align" id="copyright">
           &copy;Copyright 2018 Art Work Project
         </div>
       </div>
