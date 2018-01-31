@@ -323,7 +323,7 @@
       //     infowindow.setContent(place.name);
       //
       //     infowindow.open(map, this);
-      //
+      //h
       //     console.log(place.name);
       //   });
       // }
