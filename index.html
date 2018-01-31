@@ -2,9 +2,11 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <meta name="google-signin-scope" content="profile email">
+    <!-- google authentication for added wishlist -->
+    <!-- <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="3730224195-55mbd9pi11nnqjovf8drh42m1jsmhv6v.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <!-- google authentication for added wishlist -->
     <title> Local Art Gallery Search </title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -30,22 +32,22 @@
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
-              <img id="Logo" src="assets/images/LocArt.png">
-            </a>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            <img id="Logo" src="assets/images/LocArt.png">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
               <div class="collapse" id="navbarToggleExternalContent">
-              <div>
-                <h4>Menu</h4>
-                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                <span>Toggleable via the navbar brand.</span>
+                <div>
+                  <h4>Menu</h4>
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                  <span>Toggleable via the navbar brand.</span>
+                </div>
               </div>
-            </div>
-            <button class="navbar-toggler" id="btnMenu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" id="btnMenu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ion-navicon-round"></span>
               </button>
             </li>
@@ -58,8 +60,11 @@
     </nav>
     <div class="container" id="MainContent">
       <div class="PageHeader">
+
+        <!-- this is where the user will land on the page and search for a city in a textfield -->
         <form class="form-inline">
-          <!-- need find museums to specify country -->
+          <!-- #findmuseums is needed for the JS to specify a country for the autocomplete feature -->
+          <!-- the user can not search without making this selection first -->
           <div id="findmuseums">
             Find museums in:
           </div>
@@ -80,82 +85,83 @@
               <option value="us" selected>U.S.A.</option>
               <option value="uk">United Kingdom</option>
             </select>
-          </div>
+          </div> <!-- controls for #findmuseums  -->
           <div id="locationField">
-            <input id="autocomplete" placeholder="Enter a city" type="text" />
+            <input id="autocomplete" placeholder="Where are you going?" type="text" />
           </div>
-          <input class="form-control" id="artist-input" type="search" placeholder="Where are you going??" aria-label="Search">
-          <button class="btn btn-primary" id="add-artist" type="submit">Search</button>
-        </form>
+<!--           <input class="form-control" id="artist-input" type="search" placeholder="Where are you going??" aria-label="Search">
+          <button class="btn btn-primary" id="add-artist" type="submit">Search</button> -->
+        </form><!-- landing page search box -->
       </div>
+
+      <!-- main content row -->
       <div class="row">
-        <!-- Main section-->
-        <div class="col-md-9">
-          <di
-            <div class="row featured-locations">
-              <!-- this is where the search list is rendered -->
-              <div class="col-lg-6 list-group">
-                <h4 class="list-group-item-heading"></h4>
-              </div>
-              </div>
-          </div>
+
+        <!-- this div places the map -->
+        <div class="col-md-6">
+          <div id="map"></div>
+        </div><!-- this div places the map -->
+
+        <!-- lists the name of the museum from the searched city   -->
+        <div class="col-md-3 list-group">
+          <div id="listing">
+            <table id="resultsTable">
+              <tbody id="results"></tbody>
+            </table>
+          </div><!-- lists the name of the museum from the searched city-->
+
+          <!-- this displays the info on the map when clicked -->
+          <div style="display: none" id="map-info">
+            <div id="info-content">
+              <table>
+                <tr id="iw-url-row" class="iw_table_row">
+                  <td id="iw-icon" class="iw_table_icon"></td>
+                  <td id="iw-url"></td>
+                </tr>
+                <tr id="iw-address-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Address:</td>
+                  <td id="iw-address"></td>
+                </tr>
+                 <tr id="iw-phone-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Telephone:</td>
+                  <td id="iw-phone"></td>
+                </tr>
+                <tr id="iw-rating-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Rating:</td>
+                  <td id="iw-rating"></td>
+                </tr>
+                <tr id="iw-website-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Website:</td>
+                  <td id="iw-website"></td>
+                </tr>
+              </table>
+            </div> <!-- #info-content -->
+          </div><!-- #map-info -->
+        </div><!-- #list-group -->
+
+        <!-- Aside section-->
+        <div class="col-md-3">
+          <aside>
+            <a class="twitter-timeline" target="_blank" data-width="280" data-height="780" href="https://twitter.com/locartexplorer?ref_src=twsrc%5Etfw">Tweets by locartexplorer</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </aside>
         </div>
-    </div>
-
-
-
-
-    <div id="map"></div>
-
-    <div id="listing">
-      <table id="resultsTable">
-        <tbody id="results"></tbody>
-      </table>
-    </div>
-
-    <div style="display: none">
-      <div id="info-content">
-        <table>
-          <tr id="iw-url-row" class="iw_table_row">
-            <td id="iw-icon" class="iw_table_icon"></td>
-            <td id="iw-url"></td>
-          </tr>
-          <tr id="iw-address-row" class="iw_table_row">
-            <td class="iw_attribute_name">Address:</td>
-            <td id="iw-address"></td>
-          </tr>
-          <tr id="iw-phone-row" class="iw_table_row">
-            <td class="iw_attribute_name">Telephone:</td>
-            <td id="iw-phone"></td>
-          </tr>
-          <tr id="iw-rating-row" class="iw_table_row">
-            <td class="iw_attribute_name">Rating:</td>
-            <td id="iw-rating"></td>
-          </tr>
-          <tr id="iw-website-row" class="iw_table_row">
-            <td class="iw_attribute_name">Website:</td>
-            <td id="iw-website"></td>
-          </tr>
-        </table>
-      </div>
-    </div>
+    </div><!-- main content row -->
     <footer id="footer">
       <div class="navbar navbar-default navbar-fixed-bottom">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" id="footernav">
             <li><a href="about.html">About</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         <div class="container" class="text-center-align" id="copyright">
           &copy;Copyright 2018 Art Work Project
-        </div>
-      </div>
+        </div><!-- copyright -->
+      </div><!-- navbar-fixed-bottom -->
     </footer>
 
     <!-- App Script -->
     <script src="assets/js/cooper-hewitt-api.js"></script>
     <script src="assets/js/google-maps-api.js"></script>
-    <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB61PnqmziwpA7hEr4527uUNH_NB_F1vg8&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>
