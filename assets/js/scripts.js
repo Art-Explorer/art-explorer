@@ -28,12 +28,12 @@ $( document ).ready(function() {
 
       function totalDisplay(i) {
         var outDiv = $("<div class=col-md-12>");
-        var innerRow = $("<row>");
+        var inDiv = $("<div class=media>");
 
-        var artDisplay = $("<div class=col-lg-2>");
+        var artDisplay = $("<div class=media-left>");
         artDisplay.attr("id", "artDisplay");
-
-        var artInfo = $("<div class=col-lg-9>");
+        var artHeading = $("<h4 class=media-heading>");
+        var artInfo = $("<div class=media-body>");
         artInfo.attr("id", "artInfo");
 
         var artDiv = $("<div class='item'>");
@@ -43,8 +43,7 @@ $( document ).ready(function() {
         acquired = newData.objects[i].year_acquired;
         medium = newData.objects[i].medium;
         info = newData.objects[i].description;
-        infoCard =  "Name: " + artTitle + "<br>" +
-            "Year Acquired: " + acquired + "<br>" +
+        infoCard = "Year Acquired: " + acquired + "<br>" +
             "Medium: " + medium + "<br>" +
             "Information: " + info + "</p>";
 
@@ -60,15 +59,17 @@ $( document ).ready(function() {
 
         artDiv.append(artImage);
         artDisplay.append(artDiv);
+        artHeading.append(artTitle);
+        artInfo.append(artHeading);
         artInfo.append(infoCard);
-        innerRow.append(artDisplay);
-        innerRow.append(artInfo);
-        outDiv.append(innerRow);
+        inDiv.append(artDisplay);
+        inDiv.append(artInfo);
+        outDiv.append(inDiv);
         $("#showcase").append(outDiv);
         $("#artist-input").val('');
       }
 
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 4; i++) {
         totalDisplay(i);
       }
 

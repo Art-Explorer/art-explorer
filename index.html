@@ -91,6 +91,7 @@
           </div>
 <!--           <input class="form-control" id="artist-input" type="search" placeholder="Where are you going??" aria-label="Search">
           <button class="btn btn-primary" id="add-artist" type="submit">Search</button> -->
+
         </form><!-- landing page search box -->
       </div>
 
@@ -104,10 +105,21 @@
 
         <!-- lists the name of the museum from the searched city   -->
         <div class="col-md-3 list-group">
+        </form>
+      </div>
+      <div class="row">
+        <!-- Main section-->
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <div id="map"></div>
+        </div>
+        <div class="col-md-2 list-group">
+
           <div id="listing">
             <table id="resultsTable">
               <tbody id="results"></tbody>
             </table>
+
           </div><!-- lists the name of the museum from the searched city-->
 
           <!-- this displays the info on the map when clicked -->
@@ -139,13 +151,43 @@
           </div><!-- #map-info -->
         </div><!-- #list-group -->
 
+          </div>
+          <div style="display: none">
+            <div id="info-content">
+              <table>
+                <tr id="iw-url-row" class="iw_table_row">
+                  <td id="iw-icon" class="iw_table_icon"></td>
+                  <td id="iw-url"></td>
+                </tr>
+                <tr id="iw-address-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Address:</td>
+                  <td id="iw-address"></td>
+                </tr>
+                 <tr id="iw-phone-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Telephone:</td>
+                  <td id="iw-phone"></td>
+                </tr>
+                <tr id="iw-rating-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Rating:</td>
+                  <td id="iw-rating"></td>
+                </tr>
+                <tr id="iw-website-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Website:</td>
+                  <td id="iw-website"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
         <!-- Aside section-->
         <div class="col-md-3">
           <aside>
             <a class="twitter-timeline" target="_blank" data-width="280" data-height="780" href="https://twitter.com/locartexplorer?ref_src=twsrc%5Etfw">Tweets by locartexplorer</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </aside>
         </div>
+
     </div><!-- main content row -->
+    </div>
     <footer id="footer">
       <div class="navbar navbar-default navbar-fixed-bottom">
         <ul class="nav navbar-nav" id="footernav">

@@ -12,7 +12,7 @@ $( document ).ready(function() {
 
     const dbRef = firebase.database().ref("Artist");
 
-  $("#add-artist").on("click", function(event) {
+  $("#museum-choice").on("click", function(event) {
     event.preventDefault();
     const token = "2e2316873bca66e99bd915dbcb769c56";
     var artist = "Picasso";
@@ -37,10 +37,15 @@ $( document ).ready(function() {
         var galleryLink = $("<a href= 'artGallerySearchResult.html'>");
         galleryLink.append(artImage);
         artDiv.append(galleryLink);
-        $("#add-artist").append(artDiv);
+        $("#art-display").append(artDiv);
       }
     });
   });
+
+  // $(document).on("click", ".art", function(event){
+  //   console.log("Hello!");
+  //   $("<a href= 'artGallerySearchResult.html'>");
+  // });
 
 });
 
