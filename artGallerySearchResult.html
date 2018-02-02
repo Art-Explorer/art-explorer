@@ -33,18 +33,22 @@
             </a>
           </div>          
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <div class="btn-group dropleft">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Learn More
-                </button>
-                <div class="dropdown-menu">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="collapse" id="navbarToggleExternalContent">
+              <div>
+                <h4>Menu</h4>
+                <span>Toggleable via the navbar brand.</span>
               </div>
-            </ul>
+            </div> 
+            <button class="navbar-toggler" id="btnMenu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="ion-navicon-round"></span>
+              </button>
+            </li>
+            <li><a href="https://www.facebook.com/LocArt-Explorer-385449908535019/" target="_blank"><img src="assets\images\facebook.png" class="socialImg"></a></li>
+            <li><a href="https://www.instagram.com/locartexplorer" target="_blank"><img src="assets\images\instagram.png" class="socialImg"></a></li> 
+            <li><a href="https://twitter.com/locartexplorer" target="_blank"><img src="assets\images\twitter.png" class="socialImg"></a></li> 
+          </ul>
         </div>
       </div>        
     </nav>
@@ -91,13 +95,14 @@
       </div>
               <div class="museum-logo"><img src="assets\images\cooper_hewitt_logo.png" id="logo-image"></div>
       <footer id="footer">
-        <div class="text-center-align">
-          <div class="container" class="text-center-align">
-              <a href="https://www.facebook.com/LocArt-Explorer-385449908535019/" target="_blank"><img src="assets\images\facebook.png" class="socialImg"></a>
-              <a href="https://www.instagram.com/locartexplorer" target="_blank"><img src="assets\images\instagram.png" class="socialImg"></a>
-              <a href="https://twitter.com/locartexplorer" target="_blank"><img src="assets\images\twitter.png" class="socialImg"></a>
-              <br>       
-            <div class="text-center-align" id="copyright">&copy;Copyright 2018 Art Work Project</div>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+          <ul class="nav navbar-nav" id="footernav">
+              <li><a href="about.html">About</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          <div class="container" class="text-center-align" id="copyright">          
+            &copy;Copyright 2018 Art Work Project
           </div>
         </div>
       </footer>
