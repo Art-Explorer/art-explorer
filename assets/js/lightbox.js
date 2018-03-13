@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
   /* activate the carousel */
   $("#modal-carousel").carousel({interval:false});
 
@@ -30,4 +32,5 @@ $(document).ready(function() {
     // show the modal
   	$("#modal-gallery").modal("show");
   });
+
 });
