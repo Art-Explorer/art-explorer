@@ -2,6 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="3730224195-5v3sp4d75hepuedk22sto0vbf92lpicp.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -9,86 +10,51 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <!-- Bootstrap CDN-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-
-    <!-- Bootstrap CDN-->
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
-
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/google-maps.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bucketList.css"> -->
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    
     <!-- Moment.js Reference -->
-   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">
-            <img id="Logo" src="assets/images/LocArt.png">
-          </a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-              <div class="btn-group dropleft">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <h3>learn more</h3>
-                </button>
-                <div class="dropdown-menu">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </div>
+      <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid" id="navfluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                   </button>
+                   <a class="navbar-brand" href=""><img id="Logo" src="assets/images/LocArt.png"></a>
               </div>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container" id="MainContent">
-      <div class="PageHeader">
-        <form class="form-inline">
-          <!-- need find museums to specify country -->
-          <div id="findmuseums">
-            Find museums in:
-          </div>
-          <div id="controls">
-            <select id="country">
-              <option value="all">All</option>
-              <option value="au">Australia</option>
-              <option value="br">Brazil</option>
-              <option value="ca">Canada</option>
-              <option value="fr">France</option>
-              <option value="de">Germany</option>
-              <option value="mx">Mexico</option>
-              <option value="nz">New Zealand</option>
-              <option value="it">Italy</option>
-              <option value="za">South Africa</option>
-              <option value="es">Spain</option>
-              <option value="pt">Portugal</option>
-              <option value="us" selected>U.S.A.</option>
-              <option value="uk">United Kingdom</option>
-            </select>
-          </div>
-          <div id="locationField">
-            <input id="autocomplete" placeholder="Where are you going?" type="text" />
-          </div>
-        </form>
-      </div>
-      <!-- Main section-->
+              <div class="collapse navbar-collapse" id="navigationbar">
+                  <ul class="nav navbar-nav">
+                      <li class="active"><a href="">About</a></li>
+                      <li><a href="">FAQ</a></li>
+                      <li><a href="">Contact</a></li>    
+                  </ul>
+             </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+       </nav>
+    <div class="content" id="MainContent">
       <div class="row">
-        <div class="col-md-4 google-map">
-          <div id="map"></div>
-        </div>
-        <div class="col-md-5 list-group results-table">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <h2>Featured Gallery</h2>
+          <div class="polaroid">
             <div id="art-display">
-              <div id="mySecondCarousel" class="carousel slide slide two" data-ride="carousel">
+              <div class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                   <li data-target="#mySecondCarousel" data-slide-to="0" class="active"></li>
@@ -99,11 +65,6 @@
                   <div class="item active" id="slide-0"></div>
                   <div class="item" id="slide-1"></div>
                   <div class="item" id="slide-2"></div>
-                  <!-- <div class="item" id="slide-3"></div>
-                  <div class="item" id="slide-4"></div>
-                  <div class="item" id="slide-5"></div>
-                  <div class="item" id="slide-6"></div>
-                  <div class="item" id="slide-7"></div> -->
                 </div>
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -115,9 +76,76 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div>
+              <div class="attachment">
+                <div id="gallery-info"></div>
+                <form class="form-inline">
+                  <input type="text" class="form-control" id="keyword-entry" placeholder="Enter artist or keyword">
+                  <button type="submit" class="btn btn-default" id="artist-submit">Submit</button>
+                </form>
+              </div>
             </div>
-          <div id="listing">
-            <table id="resultsTable">
+            <!-- ******** MODAL ******* -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p class="header-content"></p>
+                    <h4 class="modal-title"></h4>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                    <p class="footer-content"></p>
+                    <button type="button" id="close-button" class="btn btn-default close" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+         
+      <!-- ******* GOOGLE MAP ******* -->
+      
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <h2> Locate Some Art</h2>
+        <div class="polaroid">
+          <div class="google-map" id="map"></div>
+        <div class="attachment">
+          <form class="form-inline">
+              <input type="text" class="form-control" id="autocomplete" placeholder="Where to?">
+              <select class="form-control" id="country">
+                <option value="all">All</option>
+                <option value="au">Australia</option>
+                <option value="br">Brazil</option>
+                <option value="ca">Canada</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+                <option value="mx">Mexico</option>
+                <option value="nz">New Zealand</option>
+                <option value="it">Italy</option>
+                <option value="za">South Africa</option>
+                <option value="es">Spain</option>
+                <option value="pt">Portugal</option>
+                <option value="us" selected>U.S.A.</option>
+                <option value="uk">United Kingdom</option>
+              </select>
+            <div id="locationField"></div>  
+          </form>
+          <!-- <div id="floating-panel">
+            <b>Mode of Travel: </b>
+            <select class="form-control" id="mode">
+              <option value="DRIVING">Driving</option>
+              <option value="WALKING">Walking</option>
+              <option value="BICYCLING">Bicycling</option>
+              <option value="TRANSIT">Transit</option>
+            </select>
+          </div> -->
+        </div>
+        </div>
+      <!-- ******* LOCATION SESARCH RESULTS ******* -->
+          <div style="width: 100%; max-height:120px; overflow:auto;" id="listing">
+            <table id="results-table">
               <tbody id="results"></tbody>
             </table>
           </div>
@@ -132,7 +160,7 @@
                   <td class="iw_attribute_name">Address:</td>
                   <td id="iw-address"></td>
                 </tr>
-                 <tr id="iw-phone-row" class="iw_table_row">
+                <tr id="iw-phone-row" class="iw_table_row">
                   <td class="iw_attribute_name">Telephone:</td>
                   <td id="iw-phone"></td>
                 </tr>
@@ -146,83 +174,180 @@
                 </tr>
                 <tr id="iw-website-row" class="iw_table_row">
                   <td class="iw_attribute_name">Options:</td>
-                  <td id="iw-buttons"><button type="button" name="button" class="btn btn-info">Photos</button><button type="button" name="button" class="btn btn-success">Add to list</button></td>
+                    <td type="button" class="btn btn-primary btn-sm" id="photos-button">Photos
+                  </td>
+                </tr>
+                <tr id="iw-website-row" class="iw_table_row">
+                  <td class="iw_attribute_name"></td>
+                    <td type="button" class="btn btn-success btn-sm" id="bucket-list">Bucket
+                  </td>
                 </tr>
               </table>
             </div>
           </div>
-      </div>
-
-      <div class="col-md-5 carousel-one">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
-            <li data-target="#myCarousel" data-slide-to="5"></li>
-          </ol>
-              
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="assets/images/bontecoumoma.jpg" alt="bontecoumoma" id="carousel-img">
-              </div>
-              <div class="item">
-                <img src="assets/images/kandinskyguggenheim.jpg" alt="kandinskyguggenheim" id="carousel-img">
-              </div>
-              <div class="item">
-                <img src="assets/images/louisarmstrongmuseum.jpg" alt="louisarmstrongmuseum" id="carousel-img">
-              </div>
-              <div class="item">
-                <img src="assets/images/modelch.jpg" alt="modelch" id="carousel-img">
-              </div>
-              <div class="item">
-                <img src="assets/images/baxter.jpg" alt="Baxter" id="carousel-img">
-              </div>
-              <div class="item">
-                <img src="assets/images/davis.jpg" alt="Davis" id="carousel-img">
-              </div>
-            </div>
-              <!-- Left and right controls -->
-              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-              </a>
-          </div>
         </div>
-
-        <!-- Aside section-->
-        <div class="col-md-3">
-          <aside>
-            <a class="twitter-timeline" target="_blank" data-width="280" data-height="780" href="https://twitter.com/locartexplorer?ref_src=twsrc%5Etfw">Tweets by locartexplorer</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </aside>
+       <!-- ******* TWITTER FEED ******* -->
+       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <h2>Follow LocArt</h2>
+          <a class="twitter-timeline" data-width="100%" data-height="390" target="_blank" href="https://twitter.com/locartexplorer?ref_src=twsrc%5Etfw">Tweets by locartexplorer</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
-    <footer id="footer">
-      <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="text-center-align">
-          <div class="container footer" class="text-center-align">
-            <a href="https://www.facebook.com/LocArt-Explorer-385449908535019/" target="_blank"><img src="assets\images\facebook.png" class="socialImg"></a>
-            <a href="https://www.instagram.com/locartexplorer" target="_blank"><img src="assets\images\instagram.png" class="socialImg"></a>
-            <a href="https://twitter.com/locartexplorer" target="_blank"><img src="assets\images\twitter.png" class="socialImg"></a>
-            <br>       
-            <div class="text-center-align" id="copyright">&copy;Copyright 2018 Art Work Project</div>
+    <div class="row">
+       <div class="col-md-12" id="photos"></div>
+    </div>
+  </div>
+    <!-- ****** ABOUT SECTION ***** -->
+  <div class="content">
+    <div class="row">
+	    <div class="col-md-12">
+          <h2>The Team</h2>
+		  	<div class="row">
+			  	<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 bio-image">
+		  	    <a href="https://github.com/rupamkumari24"><img class="img responsive team" src="assets\images\rupam.png" alt="Rupam"></a>
+			  	</div>
+		  	  <div class="col-xs-12 col-sm-6 col-md-10 col-md-10 bio">
+            <h4 class="media-heading"><a href="https://github.com/rupamkumari24" target="_blank">Rupam Kumari</a></h4>
+            <i>Amazing text here about the incredible Rupam</i>
+            <br>
+            Rupam is represented, in pensive repose, in the oil on canvas painting <a href="https://www.google.com/culturalinstitute/beta/asset/hungarian-gypsy-girl/rwFjUY63de-jKA" target="_blank">"Hungarian Gypsy Girl"</a> by Amrita Sher-Gil in the National Gallery of Modern Art.
+			  	</div>
+		  	</div>
+	    </div>
+    </div>
+    <div class="row">
+	    <div class="col-md-12">
+		  	<div class="row">
+			  	<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 bio-image">
+            <a href="https://github.com/JBohde"><img class="img responsive team" src="assets\images\josh.png" alt="Josh"></a>
+			  	</div>
+		  	  <div class="col-xs-12 col-sm-6 col-md-10 col-md-10 bio">
+            <h4 class="media-heading"><a href="https://github.com/JBohde" target="_blank">Joshua Bohde</a></h4>
+            <i>Cool words here about the indominable Joshua</i>
+            <br>
+            Joshua is represented in oil on canvas, in the painting <a href="https://commons.wikimedia.org/wiki/File:Thomas_Flintoff_-_Sam_Houston_-_Google_Art_Project.jpg" target="_blank">"Sam Houston"</a> by Thomas Flintoff in the Sam Houston Museum.                  </div>
+			  	</div>
+		  	</div>
+	    </div>
+    <div class="row">
+	    <div class="col-md-12">
+		  	<div class="row">
+			  	<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 bio-image">
+            <a href="https://github.com/rocsteady888"><img class="img responsive team" src="assets\images\ryan.png" alt="Ryan"></a>			  	
+          </div>
+		  	  <div class="col-xs-12 col-sm-6 col-md-10 col-md-10 bio">
+            <h4 class="media-heading"><a href="https://github.com/rocsteady888" target="_blank">Ryan O'Connor</a></h4>
+            <i>Slick script here about the formidable Ryan</i>
+            <br>
+            Ryan is represented in oil on canvas, in the painting <a href="https://www.google.com/culturalinstitute/beta/asset/portrait-of-guilherme-de-almeida/4AGbVwuOKNyC8g" target="_blank">"Portrait of Guilherme de Almeida"</a> by Lasar Segall in the private collection of Sr. Almeida. 
+			  	</div>
+		  	</div>
+	    </div>
+    </div>
+    <div class="row">
+	    <div class="col-md-12">
+		  	<div class="row">
+			  	<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 bio-image">
+            <a href="https://github.com/melissable"><img class="img responsive team" src="assets\images\melissa.png" alt="Melissa"></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-10 col-md-10 bio">
+              <h4 class="media-heading"><a href="https://github.com/melissable" target="_blank">Melissa Capps</a></h4>
+              <i>Super content here about the powerhouse Melissa</i>
+              <br>
+              Melissa is represented, in a silk hat, in the anonymous sketch <a href="https://www.google.com/culturalinstitute/beta/asset/le-follet-courrier-des-salons-1836-no-500-chapeau-en-poult-de-soie/JgHyq4QtvoOD8Q" target="_blank">"Le Follet Courrier des Salons, 1836, No. 500: Chapeau un poult de soie"</a> in the Rijksmuseum. 
+            </div>
+		  	</div>
+	    </div>
+    </div>
+  </div>
+    </div>
+    <div class="content-bottom">
+        <div class="row faq">
+          <div class="col-md-4">
+            <h2>Frequently Asked Questions</h2>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      What museums are represented in this search?
+                      </button>
+                    </h5>
+                  </div>      
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Currently, we work with the Smithsonian museums. We are developing additional museums and collections on a daily basis.
+                    </div>
+                  </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How is the location calculated?
+                      </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    The location is figured out based on the zip code or city/state you provided in the search, based off of the Google Map data. Some distances may vary, depending on the accuracy of the Google data.                      </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        How can I save the art pieces I want to visit?
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                      You can add them to your Google Map. Plus, coming soon, we'll be linking with TripAdvisor, so you can add it to your trip.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="col-md-8">
+            <p><h2>Headquarters Location:</h2>
+              <br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12935.016337099116!2d-78.8406234!3d35.8550331!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4026bd6f06c2c205!2sHyatt+House+Raleigh+Durham+Airport!5e0!3m2!1sen!2sus!4v1517067140772" width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <br>
+              Hours:
+              <br>
+              Mondays and Wednesdays : 6:30 - 9:30 PM EST
+              <br>
+              Saturdays : 10:00 AM - 2:00 PM EST
+              <br>
+              <br>
+              Phone: 1(888)555-5555
+              <br>
+              <br>
+              <a href="mailto:contact@locart.com">Email us here.</a>
+            </p>  
+        </div>
       </div>
-    </footer>
+      </div>
+    </div> 
+      <footer id="footer">
+          <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="text-center-align">
+              <div class="container footer" class="text-center-align">
+                <a href="https://www.facebook.com/LocArt-Explorer-385449908535019/" target="_blank"><img src="assets\images\facebook.png" class="socialImg"></a>
+                <a href="https://www.instagram.com/locartexplorer" target="_blank"><img src="assets\images\instagram.png" class="socialImg"></a>
+                <a href="https://twitter.com/locartexplorer" target="_blank"><img src="assets\images\twitter.png" class="socialImg"></a>
+                <br>       
+                <div class="text-center-align" id="copyright">&copy;Copyright 2018 Art Work Project</div>
+              </div>
+            </div>
+          </div>
+        </footer>
 
     <!-- App Script -->
-    <script src="assets/js/cooper-hewitt-api.js"></script>
+    <script type="text/javascript" src="assets/js/lightbox.js"></script>
+    <script src="assets/js/scripts.js"></script>
     <script src="assets/js/google-maps-api.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB61PnqmziwpA7hEr4527uUNH_NB_F1vg8&libraries=places&callback=initMap" async defer></script>
-    <!-- <script type="text/javascript" src="assets/js/flickr.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbo4VQfUUHchQB5FDiIBZ0RVb1pGgqtL8&libraries=places&callback=initMap"async defer></script>
+
   </body>
 </html>

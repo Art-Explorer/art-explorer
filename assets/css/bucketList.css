@@ -1,6 +1,6 @@
-#map {
+/* #map {
   width: 100%;
-}
+} */
 
 .select {
   font-size: 16px;
@@ -51,25 +51,26 @@
   pointer-events: none;
 }
 
-#autocomplete {
+/* #autocomplete,
+#country {
   width: 200px;
   height: 50px;
   font-size: 16px;
   text-align: center;
-}
+} */
 
-#country {
+/* #country {
   font-size: 24px;
-}
+} */
 
 #info-content {
   font-size: 16px;
 }
 
 .thumbnail {margin-bottom:6px;}
-
+/* 
 .carousel-control.left,.carousel-control.right{
   background-image:none;
   margin-top:10%;
   width:5%;
-}
+} */
