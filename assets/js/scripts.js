@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-  $(".learn-more").hide();
-  $(".faq").hide();
+  // $(".learn-more").hide();
+  // $(".faq").hide();
   $("#results-table").hide();
 
   var config = {
@@ -63,7 +63,7 @@ $( document ).ready(function() {
         var artHeading = $("<h2 class=media-heading>");
         var artInfo = $("<div class=media-body>");
         artInfo.attr("id", "artInfo");
-        var artDiv = $("<div class='panel-body'>");
+        var artDiv = $("<div class='body'>");
   
         participants = newData.objects[i].participants;
         imgSource = newData.objects[i].images[0].b.url

@@ -82,7 +82,7 @@
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         ch = place;
         console.log(ch);
-        document.getElementById('gallery-info').innerHTML =  "*touch image for more info" + "<br>" + "<br>" + ch.name + "<br>" + ch.formatted_address + "<br>" + ch.formatted_phone_number + "<br>" + ch.website;
+        document.getElementById('gallery-info').innerHTML =  "* touch image for more info *" + "<br>" + "<h5>" + ch.name +  "</h5>" + ch.website + "<br>" + "<br>";
       }
     }
     var directionsService;
