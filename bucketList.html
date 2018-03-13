@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="3730224195-5v3sp4d75hepuedk22sto0vbf92lpicp.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title> Local Art Gallery Search </title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+    <!-- Bootstrap CDN-->
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bucketList.css">
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!-- Moment.js Reference -->
+   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            <img id="Logo" src="assets/images/LocArt.png">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="collapse" id="navbarToggleExternalContent">
+                <div>
+                  <h4>Menu</h4>
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                  <span></span>
+                </div>
+              </div>
+              <button class="navbar-toggler" id="btnMenu" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="ion-navicon-round"></span>
+              </button>
+            </li>
+            <li><a href="https://www.facebook.com/LocArt-Explorer-385449908535019/" target="_blank"><img src="assets\images\facebook.png" class="socialImg"></a></li>
+            <li><a href="https://www.instagram.com/locartexplorer" target="_blank"><img src="assets\images\instagram.png" class="socialImg"></a></li>
+            <li><a href="https://twitter.com/locartexplorer" target="_blank"><img src="assets\images\twitter.png" class="socialImg"></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container" id="MainContent">
+      <div class="PageHeader">
+        <form class="form-inline form-group">
+          <!-- need find museums to specify country -->
+            <div class="row"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><button type="button" name="button" class="btn-lg btn-success" data-toggle="modal" data-target="#myModal">Bucket List</button></div>
+          <div class="select">
+            <span class="arr"></span>
+            <div id="findmuseums">
+              <h3>Find museums in:</h3>
+            </div>
+            <div id="controls" >
+              <select id="country">
+                <option value="all">All</option>
+                <option value="au">Australia</option>
+                <option value="br">Brazil</option>
+                <option value="ca">Canada</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+                <option value="mx">Mexico</option>
+                <option value="nz">New Zealand</option>
+                <option value="it">Italy</option>
+                <option value="za">South Africa</option>
+                <option value="es">Spain</option>
+                <option value="pt">Portugal</option>
+                <option value="us" selected>U.S.A.</option>
+                <option value="uk">United Kingdom</option>
+              </select>
+            </div> <!-- select -->
+          <div id="locationField">
+            <input id="autocomplete" placeholder="Where are you going?" type="text" />
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <!-- Main section-->
+        <div class="col-md-8">
+          <div id="map"></div>
+        </div>
+        <div class="col-md-4 list-group">
+          <div id="listing">
+            <table id="resultsTable">
+              <tbody id="results"></tbody>
+            </table>
+          </div>
+          <div style="display: none">
+            <div id="info-content">
+              <table>
+                <tr id="iw-url-row" class="iw_table_row">
+                  <td id="iw-icon" class="iw_table_icon"></td>
+                  <td id="iw-url"></td>
+                </tr>
+                <tr id="iw-address-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Address:</td>
+                  <td id="iw-address"></td>
+                </tr>
+                 <tr id="iw-phone-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Telephone:</td>
+                  <td id="iw-phone"></td>
+                </tr>
+                <tr id="iw-rating-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Rating:</td>
+                  <td id="iw-rating"></td>
+                </tr>
+                <tr id="iw-website-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Website:</td>
+                  <td id="iw-website"></td>
+                </tr>
+                <tr id="iw-website-row" class="iw_table_row">
+                  <td class="iw_attribute_name">Options:</td>
+                  <td id="iw-photo-buttons"><button type="button" name="button" class="btn btn-info" id="btnPhotos">Photos</button></td>
+                </tr>
+                <tr id="iw-website-row" class="iw_table_row">
+                  <td class="iw_attribute_name"></td>
+                  <td id="iw-bucketList-button"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="photos"></div>
+    </div>
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Bucket List</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-inline">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Name:</label>
+      <input type="password" class="form-control" id="name" placeholder="Name" name="name">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+      <div class="row">
+        <!-- <h1>Photo Gallery</h1>
+            <hr>
+
+        <div class="row">
+
+          			<div class="col-12 col-md-4 col-sm-6">
+    					<a title="Image 1" href="#">
+    						<img class="thumbnail img-responsive" id="image-1" src="http://dummyimage.com/600x350/ccc/969696&amp;text=0xD10x810xD00xB50xD10x800xD10x8B0xD00xB9">
+    					</a>
+    				</div>
+
+    				<div class="col-12 col-md-4 col-sm-6">
+    					<a title="Image 2" href="#">
+    						<img class="thumbnail img-responsive" id="image-2" src="http://dummyimage.com/600x350/2255EE/969696&amp;text=0xD10x810xD00xB80xD00xBD0xD00xB80xD00xB9">
+    					</a>
+
+    				</div>
+    				<div class="col-12 col-md-4 col-sm-6">
+    					<a title="Image 3" href="#">
+    						<img class="thumbnail img-responsive" id="image-3" src="http://dummyimage.com/600x350/449955/FFF&amp;text=0xD00xB70xD00xB50xD00xBB0xD00xB50xD00xBD0xD10x8B0xD00xB9">
+    					</a>
+    				</div>
+        </div>
+
+        <hr> -->
+
+      </div>
+    </div>
+
+    	<div class="hidden" id="img-repo">
+
+    		<!-- #image-1 -->
+    		<div class="item" id="image-1">
+    			<img class="thumbnail img-responsive" title="Image 11" src="http://dummyimage.com/600x350/ccc/969696">
+    		</div>
+    		<div class="item" id="image-1">
+    			<img class="thumbnail img-responsive" title="Image 12" src="http://dummyimage.com/600x600/ccc/969696">
+    		</div>
+    		<div class="item" id="image-1">
+    			<img class="thumbnail img-responsive" title="Image 13" src="http://dummyimage.com/300x300/ccc/969696">
+    		</div>
+
+    		<!-- #image-2 -->
+    		<div class="item" id="image-2">
+    			<img class="thumbnail img-responsive" title="Image 21" src="http://dummyimage.com/600x350/2255EE/969696">
+    		</div>
+    		<div class="item" id="image-2">
+    			<img class="thumbnail img-responsive" title="Image 21" src="http://dummyimage.com/600x600/2255EE/969696">
+    		</div>
+    		<div class="item" id="image-2">
+    			<img class="thumbnail img-responsive" title="Image 23" src="http://dummyimage.com/300x300/2255EE/969696">
+    		</div>
+
+    		<!-- #image-3-->
+    		<div class="item" id="image-3">
+    			<img class="thumbnail img-responsive" title="Image 31" src="http://dummyimage.com/600x350/449955/FFF">
+    		</div>
+    		<div class="item" id="image-3">
+    			<img class="thumbnail img-responsive" title="Image 32" src="http://dummyimage.com/600x600/449955/FFF">
+    		</div>
+    		<div class="item" id="image-3">
+    			<img class="thumbnail img-responsive" title="Image 33" src="http://dummyimage.com/300x300/449955/FFF">
+    		</div>
+
+    	</div>
+
+    <div class="modal" id="modal-gallery" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">×</button>
+              <h3 class="modal-title"></h3>
+          </div>
+          <div class="modal-body">
+              <div id="modal-carousel" class="carousel">
+
+                <div class="carousel-inner">
+                </div>
+
+                <a class="carousel-control left" href="#modal-carousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a class="carousel-control right" href="#modal-carousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer id="footer">
+      <div class="navbar navbar-default navbar-fixed-bottom">
+        <ul class="nav navbar-nav" id="footernav">
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        <div class="container" class="text-center-align" id="copyright">
+          &copy;Copyright 2018 Art Work Project
+        </div>
+      </div>
+    </footer>
+
+    <!-- App Script -->
+    <script type="text/javascript" src="assets/js/lightbox.js"></script>
+    <script src="assets/js/google-maps-bucketList.js"></script>
+    <script type="text/javascript" src="assets/js/bucketList.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB61PnqmziwpA7hEr4527uUNH_NB_F1vg8&libraries=places&callback=initMap" async defer></script>
+    <script type="text/javascript" src="assets/js/flickr.js"></script>
+  </body>
+</html>
