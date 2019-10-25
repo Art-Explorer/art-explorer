@@ -9,22 +9,21 @@ body {
   background-color: #96958c;
 }
 
-.container {
-  width: 90%;
-}
-
 .attachment {
-  padding: 10px;
+  padding: 0.75rem;
   background-color: white;
+  border-radius: 0.35rem;
+  min-height: 9.5rem;
 }
 
 .content {
   width: 95%;
+  max-width: 95rem;
   height: auto;
-  margin: 0 auto 125px auto;
+  margin: 5rem auto 10rem;
   position: relative;
   background-color: white;
-  border-radius: 0.625rem;
+  border-radius: 0.35rem;
 }
 
 #Logo {
@@ -39,6 +38,10 @@ body {
   float: right;
 }
 
+.navbar.navbar-default {
+  padding: 1rem;
+}
+
 .navbar,
 .dropdown-toggle,
 .navbar-default,
@@ -47,11 +50,11 @@ body {
 .navbar-nav > li > a {
   color: #4f1308;
   background-color: #eeede4;
-  padding: 5px;
 }
 
 .row {
   margin: 5px 0 5px 0;
+  padding: 0.5rem;
 }
 
 #gallery-info {
@@ -62,21 +65,23 @@ body {
   text-align: center;
 }
 
+.carousel-control {
+  border-radius: 0.35rem;
+}
+
 .polaroid {
   width: 100%;
   height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.625rem;
+  border-radius: 0.35rem;
   text-align: center;
   margin: 0 0 10px 0;
-  padding: 5px;
   position: relative;
 }
 
 .item {
-  margin: 5px;
   width: 100%;
-  height: 266px;
+  height: 275px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,11 +89,9 @@ body {
 }
 
 .art {
-  flex-shrink: 0;
-  -webkit-flex-shrink: 0;
   max-width: 100%;
-  max-height: -webkit-fill-available;
   cursor: pointer;
+  border-radius: 0.35rem;
 }
 
 #flickr-image {
@@ -101,7 +104,8 @@ body {
 
 #modal-image {
   width: 100%;
-  height: 100%;
+  max-height: 70vh;
+  object-fit: cover;
 }
 
 .modal-dialog {
@@ -116,17 +120,22 @@ body {
 
 .media-body {
   background-color: white;
-  border-radius: 0.5em;
+  border-radius: 0.35em;
   padding: 5px;
   text-align: left;
+}
+
+.google-map {
+  border-radius: 0.35rem;
 }
 
 /* #listing, */
 .twitter-timeline {
   width: 250px;
+  border-radius: 0.35rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
-  margin: 0 auto;
+  margin-bottom: 1rem !important;
   padding: 10px;
   position: relative;
 }
