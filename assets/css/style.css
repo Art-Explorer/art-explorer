@@ -1,190 +1,23 @@
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: Verdana;
-  font-size: 14px;
-  background-color: #96958c;
+#map {
+  width: 100%;
+  height: 276px;
 }
 
-h3 {
-  margin: 0px;
+/* RESULTS TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.row {
-  margin-top: 50px;
-}
-
-.learn-more {
-  padding-top: 25px;
-}
-
-.navbar,
-.dropdown-toggle,
-.navbar-default,
-.navbar-fixed-bottom,
-.navbar-default .navbar-nav > li > a {
-  color: #4f1308;
-  background-color: #eeede4;
-}
-
-.form-inline {
-  margin-top: 75px;
-}
-
-.modal-dialog {
-  width: auto;
-  height: auto;
-  max-width: 960px;
-}
-
-.header-content {
-  float: left;
-}
-
-#carousel-img {
-  width: 500px;
-  height: 500px;
-}
-
-#listing {
-  border-radius: 1em;
-}
 td {
   padding: 5px;
   cursor: pointer;
-}
-
-#modal-image {
-  width: 100%;
-  height: 100%;
-}
-
-.artsy {
-  height: 150px;
-  width: 150px;
-  position: relative;
-  margin: 20px 160px 30px;
-  cursor: pointer;
-}
-
-.art {
-  height: 150px;
-  width: 150px;
-  position: relative;
-  cursor: pointer;
-}
-
-#museum-name {
-  text-align: center;
 }
 
 #floating-panel {
   margin-bottom: 5px;
 }
 
-#logo-image {
-  width: 150px;
-  height: 150px;
-  margin-left: 110px;
-  margin-top: -80px;
-}
-
-#art-display {
-  background-color: white;
-}
-
-#total-display {
-  padding: 10px;
-}
-
-.media-body {
-  background-color: white;
-  border-radius: 0.5em;
-  padding: 5px;
-}
-
-#Logo {
-  height: 75px;
-  width: 200px;
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  padding-bottom: 20px;
-}
-
-#btnMenu {
-  margin-top: 15px;
-  height: 30px;
-}
-
-.PageHeader {
-  text-align: center;
-  /* margin-bottom: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px; */
-}
-
-.socialImg {
-  height: 30px;
-  margin-top: 15px;
-}
-
-.form-inline {
-  margin-top: 75px;
-}
-
-.btn-primary {
-  background-color: #d8ae64;
-}
-
-.btn-primary:hover {
-  background-color: #bf8c30;
-}
-
-.profileImg {
-  height: 99px;
-  margin: 0px 20px 20px 0px;
-}
-
-.ArtGalleryImg {
-  height: 140px;
-  width: 140px;
-  margin-right: 15px;
-  margin-bottom: 15px;
-}
-.footer {
-  width: 100%;
-}
-#footer {
-  text-align: center;
-  color: #112668;
-  background-color: #eeede4;
-  font-size: 12px;
-  margin-top: 100px;
-}
-
-#copyright {
-  margin-top: 8px;
-  margin-bottom: 5px;
-  color: #4f1308;
-  /* margin-top: 15px; */
-}
-/*       /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-#map {
-  height: 500px;
-  width: 350px;
-}
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 #description {
   font-family: Roboto;
   font-size: 15px;
@@ -252,6 +85,7 @@ body {
   font-weight: 500;
   padding: 6px 12px;
 }
+
 #target {
   width: 345px;
 }
