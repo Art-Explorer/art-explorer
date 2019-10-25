@@ -1,5 +1,6 @@
 /* Optional: Makes the sample page fill the window. */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -20,7 +21,11 @@ h3 {
   padding-top: 25px;
 }
 
-.navbar, .dropdown-toggle, .navbar-default, .navbar-fixed-bottom, .navbar-default .navbar-nav>li>a {
+.navbar,
+.dropdown-toggle,
+.navbar-default,
+.navbar-fixed-bottom,
+.navbar-default .navbar-nav > li > a {
   color: #4f1308;
   background-color: #eeede4;
 }
@@ -58,7 +63,7 @@ td {
 }
 
 .artsy {
-	height: 150px;
+  height: 150px;
   width: 150px;
   position: relative;
   margin: 20px 160px 30px;
@@ -80,10 +85,10 @@ td {
   margin-bottom: 5px;
 }
 
-#logo-image{
-  width:150px;
+#logo-image {
+  width: 150px;
   height: 150px;
-  margin-left:110px;
+  margin-left: 110px;
   margin-top: -80px;
 }
 
@@ -92,32 +97,32 @@ td {
 }
 
 #total-display {
-	padding:10px;
+  padding: 10px;
 }
 
 .media-body {
   background-color: white;
-  border-radius: .5em;
+  border-radius: 0.5em;
   padding: 5px;
 }
 
-#Logo{
-	height:75px;
-	width:200px;
-	position: fixed;
-    bottom: 0;
-    top: 0;
-    padding-bottom: 20px;
+#Logo {
+  height: 75px;
+  width: 200px;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  padding-bottom: 20px;
 }
 
-#btnMenu{
-	margin-top: 15px;
-	height: 30px;
+#btnMenu {
+  margin-top: 15px;
+  height: 30px;
 }
 
-.PageHeader{
-	text-align: center;
-	/* margin-bottom: 20px;
+.PageHeader {
+  text-align: center;
+  /* margin-bottom: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px; */
 }
@@ -128,7 +133,7 @@ td {
 }
 
 .form-inline {
-	margin-top: 75px
+  margin-top: 75px;
 }
 
 .btn-primary {
@@ -140,24 +145,24 @@ td {
 }
 
 .profileImg {
-	height: 99px;
-	margin: 0px 20px 20px 0px;
+  height: 99px;
+  margin: 0px 20px 20px 0px;
 }
 
-.ArtGalleryImg{
-	height: 140px;
-	width: 140px;
-	margin-right: 15px;
-	margin-bottom: 15px;
+.ArtGalleryImg {
+  height: 140px;
+  width: 140px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
 .footer {
   width: 100%;
 }
-#footer{
-	text-align: center;
+#footer {
+  text-align: center;
   color: #112668;
   background-color: #eeede4;
-	font-size: 12px;
+  font-size: 12px;
   margin-top: 100px;
 }
 
@@ -169,83 +174,84 @@ td {
 }
 /*       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 500px;
-				width: 350px;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
+#map {
+  height: 500px;
+  width: 350px;
+}
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
+#infowindow-content .title {
+  font-weight: bold;
+}
 
-      #infowindow-content {
-        display: none;
-      }
+#infowindow-content {
+  display: none;
+}
 
-      #map #infowindow-content {
-        display: inline;
-      }
+#map #infowindow-content {
+  display: inline;
+}
 
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
 
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
 
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
 
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
 
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
 
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
+#pac-input:focus {
+  border-color: #4d90fe;
+}
 
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+#target {
+  width: 345px;
+}
