@@ -1,11 +1,9 @@
-$(document).ready(function() {
-
-
+$(document).ready(function () {
   /* activate the carousel */
   $('#modal-carousel').carousel({ interval: false });
 
   /* change modal title when slide changes */
-  $('#modal-carousel').on('slid.bs.carousel', function() {
+  $('#modal-carousel').on('slid.bs.carousel', function () {
     $('.modal-title').html(
       $(this)
         .find('.active img')
@@ -14,7 +12,7 @@ $(document).ready(function() {
   });
 
   /* when clicking a thumbnail */
-  $('.row .thumbnail').click(function() {
+  $('.row .thumbnail').click(function () {
     var content = $('.carousel-inner');
     var title = $('.modal-title');
 
@@ -33,5 +31,4 @@ $(document).ready(function() {
     // show the modal
     $('#modal-gallery').modal('show');
   });
-
 });
