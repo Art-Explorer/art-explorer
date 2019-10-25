@@ -5,13 +5,14 @@
 
 /* RESULTS TABLE */
 table {
-  width:  100%;
+  width: 100%;
   border-collapse: collapse;
 }
 
 td {
   padding: 5px;
-  cursor: pointer;}
+  cursor: pointer;
+}
 
 #floating-panel {
   margin-bottom: 5px;

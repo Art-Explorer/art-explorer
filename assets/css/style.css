@@ -1,91 +1,187 @@
-#map {
-  width: 100%;
-  height: 276px;
-}
-
-/* RESULTS TABLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-td {
-  padding: 5px;
-  cursor: pointer;
-}
-
-#floating-panel {
-  margin-bottom: 5px;
-}
-
-#description {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-}
-
-#infowindow-content .title {
-  font-weight: bold;
-}
-
-#infowindow-content {
-  display: none;
-}
-
-#map #infowindow-content {
-  display: inline;
-}
-
-.pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  font-family: Roboto;
-}
-
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
   font-size: 13px;
-  font-weight: 300;
+  background-color: #96958c;
 }
 
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
+.attachment {
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 0.35rem;
+  min-height: 9.5rem;
 }
 
-#pac-input:focus {
-  border-color: #4d90fe;
+.content {
+  width: 95%;
+  max-width: 95rem;
+  height: auto;
+  margin: 5rem auto 10rem;
+  position: relative;
+  background-color: white;
+  border-radius: 0.35rem;
 }
 
-#title {
-  color: #fff;
-  background-color: #4d90fe;
-  font-size: 25px;
-  font-weight: 500;
-  padding: 6px 12px;
+#Logo {
+  height: auto;
+  width: 150px;
+  position: relative;
+  margin-top: -20px;
+  top: 0;
 }
 
-#target {
-  width: 345px;
+.nav {
+  float: right;
+}
+
+.navbar.navbar-default {
+  padding: 1rem;
+}
+
+.navbar,
+.dropdown-toggle,
+.navbar-default,
+.navbar-fixed-bottom,
+.navbar-default,
+.navbar-nav > li > a {
+  color: #4f1308;
+  background-color: #eeede4;
+}
+
+.row {
+  margin: 5px 0 5px 0;
+  padding: 0.5rem;
+}
+
+#gallery-info {
+  padding: 10px;
+}
+
+#keyword-entry {
+  text-align: center;
+}
+
+.carousel-control {
+  border-radius: 0.35rem;
+}
+
+.polaroid {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.35rem;
+  text-align: center;
+  margin: 0 0 10px 0;
+  position: relative;
+}
+
+.item {
+  width: 100%;
+  height: 275px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.art {
+  max-width: 100%;
+  cursor: pointer;
+  border-radius: 0.35rem;
+}
+
+#flickr-image {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  max-width: 100%;
+  max-height: -webkit-fill-available;
+  margin: 5px;
+}
+
+#modal-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+}
+
+.modal-dialog {
+  width: auto;
+  height: auto;
+  max-width: 960px;
+}
+
+.header-content {
+  float: center;
+}
+
+.media-body {
+  background-color: white;
+  border-radius: 0.35em;
+  padding: 5px;
+  text-align: left;
+}
+
+.google-map {
+  border-radius: 0.35rem;
+}
+
+/* #listing, */
+.twitter-timeline {
+  width: 250px;
+  border-radius: 0.35rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin-bottom: 1rem !important;
+  padding: 10px;
+  position: relative;
+}
+
+#btnMenu {
+  margin-top: 15px;
+  height: 30px;
+}
+
+.PageHeader {
+  text-align: center;
+}
+
+.socialImg {
+  height: 30px;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background-color: #96958c;
+  margin: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #96958c;
+}
+
+.media-object {
+  height: 140px;
+  width: 140px;
+}
+
+.footer {
+  width: 100%;
+}
+
+#footer {
+  text-align: center;
+  color: #112668;
+  background-color: #eeede4;
+  font-size: 12px;
+  margin-top: 100px;
+}
+
+#copyright {
+  margin-top: 8px;
+  margin-bottom: 5px;
+  color: #4f1308;
 }
