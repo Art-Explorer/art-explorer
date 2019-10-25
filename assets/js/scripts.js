@@ -16,10 +16,12 @@ $(document).ready(function () {
   const dbRef = firebase.database().ref('Artist');
   const dbBucket = firebase.database().ref('Bucket-List');
 
-  const dbRef = firebase.database().ref("Artist");
   var artImage;
-  var imageSource;
+  var participants;
   var artTitle;
+  var personName;
+  var roleCode;
+  var imageSource;
   var acquired;
   var medium;
   var info;
